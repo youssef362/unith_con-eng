@@ -10,6 +10,7 @@ def get_bot_answer():
     incomingdata=request.json
     print(incomingdata)
     bot_response = requests.post(BOT_WEBHOOK, HEADERS, params = {'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']}).json()
+    print(bot_response)
     resp = {[{'type': 'text', 'payload': {'type': 'text', 'message': bot_response['messages'][0]['text']}}]} 
     return resp
 
