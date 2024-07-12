@@ -22,7 +22,7 @@ def get_bot_answer():
     print('json_bot_response_messages_text= ', json_bot_response['messages'][0]['text'])
     ###payload = {'type': 'text', 'message': json_bot_response['messages'][0]['text']}
    ### resp = {[{'type': 'text', 'payload': payload}]} 
-    return json.loads({[{'type': 'text', 'payload': {'type': 'text', 'message': json_bot_response['messages'][0]['text']}}]}) 
+    return json.loads([{'type': 'text', 'payload': {'type': 'text', 'message': json_bot_response['messages'][0]['text']}}]) 
 
 if __name__ == '__main__':
     app.run()
