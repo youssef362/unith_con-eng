@@ -18,6 +18,7 @@ def get_bot_answer():
     print('bot_response= ', bot_response.content)
     json_bot_response= json.dumps(bot_response.content.decode('utf-8'))
     json_bot_response = json.loads(json_bot_response)
+    print('json_bot_response_type = ', type(json_bot_response))
     print('json_bot_response= ', json_bot_response)
     print('json_bot_response_messages= ', json_bot_response['messages'])
     print('json_bot_response.json= ', json_bot_response.json)
