@@ -19,7 +19,6 @@ def get_bot_answer():
     print('json_bot_response_type = ', type(json_bot_response))
     print('json_bot_response= ', json_bot_response)
     print('json_bot_response_messages= ', json_bot_response['messages'])
-    print('json_bot_response.json= ', json_bot_response.json)
     resp = {[{'type': 'text', 'payload': {'type': 'text', 'message': json_bot_response.json['messages'][0]['text']}}]} 
     return resp
 
