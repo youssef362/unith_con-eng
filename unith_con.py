@@ -9,7 +9,7 @@ BOT_WEBHOOK='https://admin.chatme.ai/connector/webim/webim_message/a1a4d7a9976dc
 def get_bot_answer():
     incomingdata=request.json
     print('indata=', incomingdata)
-    print('indatazero=', incomingdata[0])   
+    print('indatazero=', incomingdata[0]['payload']['message'])   
     bot_response = requests.post(BOT_WEBHOOK, HEADERS, params = {'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']}).json()
     print('bot_response= ', bot_response)
     resp = {[{'type': 'text', 'payload': {'type': 'text', 'message': bot_response['messages'][0]['text']}}]} 
