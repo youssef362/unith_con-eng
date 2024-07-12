@@ -11,8 +11,8 @@ def get_bot_answer():
     incomingdata=request.json
     print('indata=', incomingdata)
     print('indatazero=', incomingdata[0]['payload']['message'])   
-    whs = requests.post(WEBHOOK_SITE, headers = HEADERS, json = {'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']}).json()
-    bot_response = requests.post(BOT_WEBHOOK, headers = HEADERS, json = {'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']}).json()
+    whs = requests.post(WEBHOOK_SITE, headers = HEADERS, json = {'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']})
+    bot_response = requests.post(BOT_WEBHOOK, headers = HEADERS, json = {'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']})
     print('bot_response= ', bot_response)
     resp = {[{'type': 'text', 'payload': {'type': 'text', 'message': bot_response['messages'][0]['text']}}]} 
     return resp
