@@ -7,12 +7,12 @@ BOT_WEBHOOK='https://admin.chatme.ai/connector/webim/webim_message/a1a4d7a9976dc
 WEBHOOK_SITE='https://webhook.site/b03c80bf-6ae0-4222-bd81-4725376b81a8'
 
 @app.route('/conversation/<user_id>/message', methods=['post'])
-def get_bot_answer():
+def get_bot_answer(user_id):
     incomingdata=request.json
     print('indata=', incomingdata)
     print('indatazero=', incomingdata[0]['payload']['message'])   
-    bot_response = requests.request("POST", BOT_WEBHOOK, headers=HEADERS, json={'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']})
-    whs = requests.request("POST", WEBHOOK_SITE, headers=HEADERS, json={'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']})
+    bot_response = requests.request("POST", BOT_WEBHOOK, headers=HEADERS, json={'event': 'new_message', 'chat': {'id': user_id},'text': incomingdata[0]['payload']['message']})
+    whs = requests.request("POST", WEBHOOK_SITE, headers=HEADERS, json={'event': 'new_message', 'chat': {'id': user_id},'text': incomingdata[0]['payload']['message']})
     
     print('bot_response= ', bot_response.content)
     json_bot_response = json.loads(bot_response.content.decode('utf-8'))
