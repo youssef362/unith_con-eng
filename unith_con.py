@@ -17,8 +17,8 @@ def get_bot_answer():
     whs = requests.request("POST", WEBHOOK_SITE, headers=HEADERS, json={'event': 'new_message', 'chat': {'id': 'some_id'},'text': incomingdata[0]['payload']['message']})
     print('bot_response= ', bot_response.content)
     json_bot_response= json.loads(bot_response.content.decode('utf-8'))
-    print('json_bot_response= ', json_bot_response)
-    resp = {[{'type': 'text', 'payload': {'type': 'text', 'message': json_bot_response['messages'][0]['text']}}]} 
+    print('json_bot_response.json= ', json_bot_response.json)
+    resp = {[{'type': 'text', 'payload': {'type': 'text', 'message': json_bot_response.json['messages'][0]['text']}}]} 
     return resp
 
 if __name__ == '__main__':
