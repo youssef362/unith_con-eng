@@ -11,10 +11,5 @@
       "src": "/(.*)",
       "dest": "unith_con.py"
     }
-  ],
-  "functions": {
-    "./**/*": {
-      "maxDuration": 60 
-    }
-  }
+  ]
 }
