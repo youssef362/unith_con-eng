@@ -3,7 +3,7 @@ import json
 import requests
 app = Flask(__name__)
 HEADERS={'Content-Type': 'application/json'}
-BOT_WEBHOOK='https://admin.chatme.ai/connector/webim/webim_message/58c17486c6530a96fcb72b61b50ff983/bot_api_webhook'
+BOT_WEBHOOK='https://app.graphlogic.ai/connector/webim/webim_message/1c85f70e17540f4d644ce5b356fef912/bot_api_webhook'
 WEBHOOK_SITE='https://webhook.site/b03c80bf-6ae0-4222-bd81-4725376b81a8'
 
 @app.route('/conversation/<user_id>/message', methods=['post'])
